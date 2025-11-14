@@ -4,6 +4,10 @@ import express from "express"  //imported from "type": "module"
 
 import cors from "cors" //essentially a middleware to allow this server to take get requests i think
 
+import "dotenv/config"
+
+import connectDB from "./database.js"
+
 const app = express()
 
 const port = 8080 // can put this port in another file and import it
@@ -16,4 +20,5 @@ app.get(`/`, (req, res) => {
 
 app.listen(port, () => {
     console.log(`Listening on port: ${port}`)
+    connectDB()
 })
